@@ -1,4 +1,4 @@
-// host/webpack.config.js
+// remote/webpack.config.js
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
@@ -8,7 +8,7 @@ module.exports = {
   mode: 'development',
   devServer: {
     static: path.join(__dirname, 'dist'),
-    port: 3000,
+    port: 3002,
     hot: true,
   },
   output: {
@@ -39,10 +39,12 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'host',
-      remotes: {
-        menu: 'menu@http://localhost:3001/remoteEntry.js',
-        cart: 'cart@http://localhost:3002/remoteEntry.js',
+      name: 'cart',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './CartDrawer': './src/components/CartDrawer',
+        './cartStore': './src/store/cartStore',
+        './globals.css': './src/styles/globals.css'
       },
       shared: {
         react: { singleton: true, requiredVersion: false, eager: false, },
