@@ -33,7 +33,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'host',
       remotes: {
-        remote: 'remote@http://localhost:3001/remoteEntry.js',
+        menu: 'menu@http://localhost:3001/remoteEntry.js',
       },
       shared: {
         react: { singleton: true, requiredVersion: false, eager: false, },

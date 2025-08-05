@@ -19,12 +19,20 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    }
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
         loader: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
         exclude: /node_modules/,
       },
     ],
@@ -35,7 +43,8 @@ module.exports = {
       filename: 'remoteEntry.js',
       exposes: {
         './Hello': './src/Hello',
-        './Hi': './src/Hi.tsx'
+        './Hi': './src/Hi.tsx',
+        './MenuList': './src/components/MenuList'
       },
       shared: {
         react: { singleton: true, requiredVersion: false, eager: false, },
