@@ -1,10 +1,10 @@
 import MenuList from "./components/MenuList"
-import { Button } from "./components/ui/button"
 
 const App = () => {
   return (
     <p>
-      <div>Remote App</div>
+      <div>Menu App</div>
+      <MenuList />
     </p>
   )
 }

@@ -42,13 +42,15 @@ module.exports = {
       name: 'menu',
       filename: 'remoteEntry.js',
       exposes: {
-        './Hello': './src/Hello',
-        './Hi': './src/Hi.tsx',
         './MenuList': './src/components/MenuList'
+      },
+      remotes: {
+        cart: 'cart@http://localhost:3002/remoteEntry.js',
       },
       shared: {
         react: { singleton: true, requiredVersion: false, eager: false, },
         'react-dom': { singleton: true, requiredVersion: false, eager: false },
+        zustand: { singleton: true },
       },
     }),
     new HtmlWebpackPlugin({
