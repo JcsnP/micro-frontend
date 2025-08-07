@@ -55,7 +55,7 @@ const MenuList = () => {
                 <span>$ {menu.price}</span>
               </p>
               <p>{menu.description}</p>
-              <Button variant="outline" onClick={() => add(menu)}>Add to cart</Button>
+              <Button variant="outline" onClick={() => add(menu)} className="cursor-pointer">Add to cart</Button>
             </div>
           </div>
         )

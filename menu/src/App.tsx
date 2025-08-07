@@ -4,7 +4,6 @@ const App = () => {
   return (
     <p>
       <div>Menu App</div>
-      <MenuList />
     </p>
   )
 }

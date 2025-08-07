@@ -22,9 +22,12 @@ const CartDrawer = () => {
         <div className="grid flex-1 auto-rows-min gap-6 px-4">
           {items.map((menu) => {
             return (
-              <div className="flex flex-row gap-2 rounded bordered p-2" key={menu.id}>
-                <img src={menu.image} className="w-32 h-32" />
-                <h2 className="text-3xl text-md font-bold">{menu.name}</h2>
+              <div className="flex flex-row gap-2 rounded bordered justify-between items-start" key={menu.id}>
+                <img src={menu.image} className="w-24 h-24 rounded-md" />
+                <div>
+                  <h2 className="text-3xl text-md font-bold">{menu.name}</h2>
+                  <p className="text-xs line-clamp-4 text-slate-500 text-justify overflow-ellipsis">{menu.description}</p>
+                </div>
               </div>
             )
           })}
