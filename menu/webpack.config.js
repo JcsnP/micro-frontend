@@ -51,6 +51,7 @@ module.exports = {
         react: { singleton: true, requiredVersion: false, eager: false, },
         'react-dom': { singleton: true, requiredVersion: false, eager: false },
         zustand: { singleton: true },
+        sonner: { singleton: true },
       },
     }),
     new HtmlWebpackPlugin({

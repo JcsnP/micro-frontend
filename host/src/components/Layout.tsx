@@ -1,7 +1,7 @@
 import { Outlet, useMatches } from "@tanstack/react-router"
-import type { ReactNode } from "react"
 import Navbar from "./Navbar"
 import React from "react"
+import { Toaster } from "./ui/sonner"
 
 export const Layout = () => {
   return (
@@ -12,6 +12,7 @@ export const Layout = () => {
       <main className="flex-1 overflow-auto">
         <Outlet />
       </main>
+      <Toaster />
     </div>
   )
 }

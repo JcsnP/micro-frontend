@@ -1,6 +1,7 @@
-import React from "react"
+import { toast } from "sonner"
 import { Button } from "./ui/button"
 import { useCartStore } from "cart/cartStore"
+import { LucideCheck } from "lucide-react"
 
 const menus = [
   {
@@ -39,6 +40,14 @@ const menus = [
 
 const MenuList = () => {
   const add = useCartStore((state) => state.add)
+
+  const handleClick = (menu: any) => {
+    add(menu);
+
+    toast("Add to cart success", {
+      icon: <LucideCheck />,
+    })   
+  }
   
   return (
     <div className="grid grid-cols-2 gap-2 w-full">
@@ -55,7 +64,7 @@ const MenuList = () => {
                 <span>$ {menu.price}</span>
               </p>
               <p>{menu.description}</p>
-              <Button variant="outline" onClick={() => add(menu)} className="cursor-pointer">Add to cart</Button>
+              <Button variant="outline" onClick={() => handleClick(menu)} className="cursor-pointer">Add to cart</Button>
             </div>
           </div>
         )
